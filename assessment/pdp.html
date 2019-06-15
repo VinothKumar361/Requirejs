@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        
+        div {
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="image/productImage.jpg"><br>
+    <div>
+        <h1>Product Name :<span id="name"></span></h1>
+        <p>Product Skew Id :<span id=Skewid></span></p>
+        <p>Price :<span id=price></span></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script>
+        var decode = window.location.href;
+        var decoded = decodeURIComponent(decode);
+        var id = decoded.split('?')[1];
+        var load = localStorage.getItem(id);
+        var load1 = JSON.parse(load);
+        $('#name').text(load1.name);
+        $('#Skewid').text(load1.id);
+        $('#price').text(load1.price);
+    </script>
+</body>
+
+</html>
